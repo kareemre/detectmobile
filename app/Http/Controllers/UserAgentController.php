@@ -22,7 +22,6 @@ class UserAgentController extends Controller
         $response = [];
 
         $userAgent = $request->header('User-Agent');
-        dd($userAgent);
 
         if (str::contains($userAgent, 'Android', true)) {
 
