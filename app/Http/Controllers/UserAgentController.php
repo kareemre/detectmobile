@@ -22,21 +22,20 @@ class UserAgentController extends Controller
         $response = [];
 
         $userAgent = $request->header('User-Agent');
+        dd($userAgent);
 
-        if (str::contains($userAgent, 'Android')) {
+        if (str::contains($userAgent, 'Android', true)) {
 
              $response['message'] = 'You are in google play';
 
-        } elseif (Str::contains($userAgent, ['ipad', 'iphone'])) {
+        } elseif (Str::contains($userAgent, ['ipad', 'iphone'], true)) {
 
              $response['message'] = 'You are in App Store';
         }
-       
-        return Response()->json([
-            $response['message']
-        ], 200);
-        
-    }
 
-    
+        return Response()->json([
+            $response
+        ], 200);     
+    }
+       
 }
